@@ -1,0 +1,14 @@
+Partition Merge Status : Successful - Thu Oct 28 11:39:02 2021
+Quartus Prime Version : 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+Revision Name : vga_driver_memory
+Top-level Entity Name : vga_driver_memory
+Family : Cyclone IV E
+Total logic elements : 1,372
+    Total combinational functions : 738
+    Dedicated logic registers : 1,099
+Total registers : 1099
+Total pins : 444
+Total virtual pins : 0
+Total memory bits : 104,448
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

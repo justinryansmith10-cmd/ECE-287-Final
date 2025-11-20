@@ -1,0 +1,688 @@
+Analysis & Synthesis report for vga_driver_memory_2
+Thu Oct 28 11:45:32 2021
+Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. General Register Statistics
+  9. Inverted Register Statistics
+ 10. Parameter Settings for User Entity Instance: vga_driver:the_vga
+ 11. Port Connectivity Checks: "vga_driver:the_vga"
+ 12. Post-Synthesis Netlist Statistics for Top Partition
+ 13. Elapsed Time Per Partition
+ 14. Analysis & Synthesis Messages
+ 15. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2016  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Intel and sold by Intel or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Thu Oct 28 11:45:32 2021       ;
+; Quartus Prime Version              ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
+; Revision Name                      ; vga_driver_memory_2                         ;
+; Top-level Entity Name              ; vga_driver_memory_2                         ;
+; Family                             ; Cyclone IV E                                ;
+; Total logic elements               ; 67                                          ;
+;     Total combinational functions  ; 67                                          ;
+;     Dedicated logic registers      ; 46                                          ;
+; Total registers                    ; 46                                          ;
+; Total pins                         ; 444                                         ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                          ;
++----------------------------------------------------------------------------+---------------------+---------------------+
+; Option                                                                     ; Setting             ; Default Value       ;
++----------------------------------------------------------------------------+---------------------+---------------------+
+; Device                                                                     ; EP4CE115F29C7       ;                     ;
+; Top-level entity name                                                      ; vga_driver_memory_2 ; vga_driver_memory_2 ;
+; Family name                                                                ; Cyclone IV E        ; Cyclone V           ;
+; Use smart compilation                                                      ; Off                 ; Off                 ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                  ; On                  ;
+; Enable compact report table                                                ; Off                 ; Off                 ;
+; Restructure Multiplexers                                                   ; Auto                ; Auto                ;
+; Create Debugging Nodes for IP Cores                                        ; Off                 ; Off                 ;
+; Preserve fewer node names                                                  ; On                  ; On                  ;
+; OpenCore Plus hardware evaluation                                          ; Enable              ; Enable              ;
+; Verilog Version                                                            ; Verilog_2001        ; Verilog_2001        ;
+; VHDL Version                                                               ; VHDL_1993           ; VHDL_1993           ;
+; State Machine Processing                                                   ; Auto                ; Auto                ;
+; Safe State Machine                                                         ; Off                 ; Off                 ;
+; Extract Verilog State Machines                                             ; On                  ; On                  ;
+; Extract VHDL State Machines                                                ; On                  ; On                  ;
+; Ignore Verilog initial constructs                                          ; Off                 ; Off                 ;
+; Iteration limit for constant Verilog loops                                 ; 5000                ; 5000                ;
+; Iteration limit for non-constant Verilog loops                             ; 250                 ; 250                 ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                  ; On                  ;
+; Infer RAMs from Raw Logic                                                  ; On                  ; On                  ;
+; Parallel Synthesis                                                         ; On                  ; On                  ;
+; DSP Block Balancing                                                        ; Auto                ; Auto                ;
+; NOT Gate Push-Back                                                         ; On                  ; On                  ;
+; Power-Up Don't Care                                                        ; On                  ; On                  ;
+; Remove Redundant Logic Cells                                               ; Off                 ; Off                 ;
+; Remove Duplicate Registers                                                 ; On                  ; On                  ;
+; Ignore CARRY Buffers                                                       ; Off                 ; Off                 ;
+; Ignore CASCADE Buffers                                                     ; Off                 ; Off                 ;
+; Ignore GLOBAL Buffers                                                      ; Off                 ; Off                 ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                 ; Off                 ;
+; Ignore LCELL Buffers                                                       ; Off                 ; Off                 ;
+; Ignore SOFT Buffers                                                        ; On                  ; On                  ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                 ; Off                 ;
+; Optimization Technique                                                     ; Balanced            ; Balanced            ;
+; Carry Chain Length                                                         ; 70                  ; 70                  ;
+; Auto Carry Chains                                                          ; On                  ; On                  ;
+; Auto Open-Drain Pins                                                       ; On                  ; On                  ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                 ; Off                 ;
+; Auto ROM Replacement                                                       ; On                  ; On                  ;
+; Auto RAM Replacement                                                       ; On                  ; On                  ;
+; Auto DSP Block Replacement                                                 ; On                  ; On                  ;
+; Auto Shift Register Replacement                                            ; Auto                ; Auto                ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto                ; Auto                ;
+; Auto Clock Enable Replacement                                              ; On                  ; On                  ;
+; Strict RAM Replacement                                                     ; Off                 ; Off                 ;
+; Allow Synchronous Control Signals                                          ; On                  ; On                  ;
+; Force Use of Synchronous Clear Signals                                     ; Off                 ; Off                 ;
+; Auto RAM Block Balancing                                                   ; On                  ; On                  ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                 ; Off                 ;
+; Auto Resource Sharing                                                      ; Off                 ; Off                 ;
+; Allow Any RAM Size For Recognition                                         ; Off                 ; Off                 ;
+; Allow Any ROM Size For Recognition                                         ; Off                 ; Off                 ;
+; Allow Any Shift Register Size For Recognition                              ; Off                 ; Off                 ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                  ; On                  ;
+; Ignore translate_off and synthesis_off directives                          ; Off                 ; Off                 ;
+; Timing-Driven Synthesis                                                    ; On                  ; On                  ;
+; Report Parameter Settings                                                  ; On                  ; On                  ;
+; Report Source Assignments                                                  ; On                  ; On                  ;
+; Report Connectivity Checks                                                 ; On                  ; On                  ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                 ; Off                 ;
+; Synchronization Register Chain Length                                      ; 2                   ; 2                   ;
+; PowerPlay Power Optimization During Synthesis                              ; Normal compilation  ; Normal compilation  ;
+; HDL message level                                                          ; Level2              ; Level2              ;
+; Suppress Register Optimization Related Messages                            ; Off                 ; Off                 ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000                ; 5000                ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000                ; 5000                ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                 ; 100                 ;
+; Clock MUX Protection                                                       ; On                  ; On                  ;
+; Auto Gated Clock Conversion                                                ; Off                 ; Off                 ;
+; Block Design Naming                                                        ; Auto                ; Auto                ;
+; SDC constraint protection                                                  ; Off                 ; Off                 ;
+; Synthesis Effort                                                           ; Auto                ; Auto                ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                  ; On                  ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                 ; Off                 ;
+; Analysis & Synthesis Message Level                                         ; Medium              ; Medium              ;
+; Disable Register Merging Across Hierarchies                                ; Auto                ; Auto                ;
+; Resource Aware Inference For Block RAM                                     ; On                  ; On                  ;
++----------------------------------------------------------------------------+---------------------+---------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ;   0.0%      ;
++----------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                          ;
++-------------------------------------------------+-----------------+------------------------+----------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path                ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                                             ; Library ;
++-------------------------------------------------+-----------------+------------------------+----------------------------------------------------------------------------------------------------------+---------+
+; ../../vga_driver_memory_2/vga_driver_memory_2.v ; yes             ; User Verilog HDL File  ; H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v ;         ;
+; ../../vga_driver_memory_2/vga_driver.v          ; yes             ; User Verilog HDL File  ; H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver.v          ;         ;
++-------------------------------------------------+-----------------+------------------------+----------------------------------------------------------------------------------------------------------+---------+
+
+
++--------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                  ;
++---------------------------------------------+----------------+
+; Resource                                    ; Usage          ;
++---------------------------------------------+----------------+
+; Estimated Total logic elements              ; 67             ;
+;                                             ;                ;
+; Total combinational functions               ; 67             ;
+; Logic element usage by number of LUT inputs ;                ;
+;     -- 4 input functions                    ; 13             ;
+;     -- 3 input functions                    ; 2              ;
+;     -- <=2 input functions                  ; 52             ;
+;                                             ;                ;
+; Logic elements by mode                      ;                ;
+;     -- normal mode                          ; 27             ;
+;     -- arithmetic mode                      ; 40             ;
+;                                             ;                ;
+; Total registers                             ; 46             ;
+;     -- Dedicated logic registers            ; 46             ;
+;     -- I/O registers                        ; 0              ;
+;                                             ;                ;
+; I/O pins                                    ; 444            ;
+;                                             ;                ;
+; Embedded Multiplier 9-bit elements          ; 0              ;
+;                                             ;                ;
+; Maximum fan-out node                        ; CLOCK_50~input ;
+; Maximum fan-out                             ; 46             ;
+; Total fan-out                               ; 954            ;
+; Average fan-out                             ; 0.84           ;
++---------------------------------------------+----------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                  ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                     ; Entity Name         ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------+---------------------+--------------+
+; |vga_driver_memory_2       ; 67 (25)             ; 46 (25)                   ; 0           ; 0            ; 0       ; 0         ; 444  ; 0            ; |vga_driver_memory_2                    ; vga_driver_memory_2 ; work         ;
+;    |vga_driver:the_vga|    ; 42 (42)             ; 21 (21)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |vga_driver_memory_2|vga_driver:the_vga ; vga_driver          ; work         ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 46    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 46    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 43    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------+
+; Inverted Register Statistics                      ;
++-----------------------------------------+---------+
+; Inverted Register                       ; Fan out ;
++-----------------------------------------+---------+
+; vga_color[16]                           ; 2       ;
+; vga_color[17]                           ; 2       ;
+; vga_color[18]                           ; 2       ;
+; vga_color[19]                           ; 2       ;
+; vga_color[20]                           ; 2       ;
+; vga_color[21]                           ; 2       ;
+; vga_color[22]                           ; 2       ;
+; vga_color[23]                           ; 2       ;
+; vga_color[8]                            ; 2       ;
+; vga_color[9]                            ; 2       ;
+; vga_color[10]                           ; 2       ;
+; vga_color[11]                           ; 2       ;
+; vga_color[12]                           ; 2       ;
+; vga_color[13]                           ; 2       ;
+; vga_color[14]                           ; 2       ;
+; vga_color[15]                           ; 2       ;
+; vga_color[1]                            ; 2       ;
+; vga_color[2]                            ; 2       ;
+; vga_color[3]                            ; 2       ;
+; vga_color[4]                            ; 2       ;
+; vga_color[5]                            ; 2       ;
+; vga_color[6]                            ; 2       ;
+; vga_color[7]                            ; 2       ;
+; vga_color[0]                            ; 3       ;
+; Total number of inverted registers = 24 ;         ;
++-----------------------------------------+---------+
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: vga_driver:the_vga     ;
++----------------+----------------------------------+-----------------+
+; Parameter Name ; Value                            ; Type            ;
++----------------+----------------------------------+-----------------+
+; HA_END         ; 1001111111                       ; Unsigned Binary ;
+; HS_STA         ; 00000000000000000000001010001111 ; Unsigned Binary ;
+; HS_END         ; 00000000000000000000001011101111 ; Unsigned Binary ;
+; WIDTH          ; 1100011111                       ; Unsigned Binary ;
+; VA_END         ; 0111011111                       ; Unsigned Binary ;
+; VS_STA         ; 00000000000000000000000111101001 ; Unsigned Binary ;
+; VS_END         ; 00000000000000000000000111101011 ; Unsigned Binary ;
+; HEIGHT         ; 1000001100                       ; Unsigned Binary ;
++----------------+----------------------------------+-----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "vga_driver:the_vga"                                                                   ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; xPixel ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; yPixel ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 444                         ;
+; cycloneiii_ff         ; 46                          ;
+;     CLR               ; 3                           ;
+;     ENA CLR           ; 43                          ;
+; cycloneiii_io_obuf    ; 141                         ;
+; cycloneiii_lcell_comb ; 94                          ;
+;     arith             ; 40                          ;
+;         2 data inputs ; 39                          ;
+;         3 data inputs ; 1                           ;
+;     normal            ; 54                          ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 29                          ;
+;         2 data inputs ; 9                           ;
+;         3 data inputs ; 1                           ;
+;         4 data inputs ; 13                          ;
+;                       ;                             ;
+; Max LUT depth         ; 3.20                        ;
+; Average LUT depth     ; 1.28                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+    Info: Processing started: Thu Oct 28 11:45:21 2021
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off vga_driver_memory_2 -c vga_driver_memory_2
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file /teaching/ece_287/fall_2021/labs/fall_12_labs/vga_on_de2_115/vga_driver_memory_2/vga_driver_memory_2.v
+    Info (12023): Found entity 1: vga_driver_memory_2 File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /teaching/ece_287/fall_2021/labs/fall_12_labs/vga_on_de2_115/vga_driver_memory_2/vga_driver.v
+    Info (12023): Found entity 1: vga_driver File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver.v Line: 6
+Info (12127): Elaborating entity "vga_driver_memory_2" for the top level hierarchy
+Warning (10034): Output port "LEDG" at vga_driver_memory_2.v(26) has no driver File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 26
+Warning (10034): Output port "LEDR[17..2]" at vga_driver_memory_2.v(27) has no driver File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 27
+Warning (10034): Output port "ENET0_TX_DATA" at vga_driver_memory_2.v(134) has no driver File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 134
+Warning (10034): Output port "ENET1_TX_DATA" at vga_driver_memory_2.v(151) has no driver File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 151
+Warning (10034): Output port "SMA_CLKOUT" at vga_driver_memory_2.v(6) has no driver File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 6
+Warning (10034): Output port "EEP_I2C_SCLK" at vga_driver_memory_2.v(97) has no driver File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 97
+Warning (10034): Output port "ENET0_GTX_CLK" at vga_driver_memory_2.v(121) has no driver File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 121
+Warning (10034): Output port "ENET0_MDC" at vga_driver_memory_2.v(124) has no driver File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 124
+Warning (10034): Output port "ENET0_RST_N" at vga_driver_memory_2.v(126) has no driver File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 126
+Warning (10034): Output port "ENET0_TX_EN" at vga_driver_memory_2.v(135) has no driver File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 135
+Warning (10034): Output port "ENET0_TX_ER" at vga_driver_memory_2.v(136) has no driver File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 136
+Warning (10034): Output port "ENET1_GTX_CLK" at vga_driver_memory_2.v(138) has no driver File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 138
+Warning (10034): Output port "ENET1_MDC" at vga_driver_memory_2.v(141) has no driver File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 141
+Warning (10034): Output port "ENET1_RST_N" at vga_driver_memory_2.v(143) has no driver File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 143
+Warning (10034): Output port "ENET1_TX_EN" at vga_driver_memory_2.v(152) has no driver File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 152
+Warning (10034): Output port "ENET1_TX_ER" at vga_driver_memory_2.v(153) has no driver File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 153
+Warning (10034): Output port "TD_RESET_N" at vga_driver_memory_2.v(164) has no driver File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 164
+Info (12128): Elaborating entity "vga_driver" for hierarchy "vga_driver:the_vga" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 285
+Warning (13039): The following bidirectional pins have no drivers
+    Warning (13040): bidirectional pin "EEP_I2C_SDAT" has no driver File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 98
+    Warning (13040): bidirectional pin "PS2_DAT" has no driver File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 101
+    Warning (13040): bidirectional pin "PS2_CLK" has no driver File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 102
+    Warning (13040): bidirectional pin "PS2_DAT2" has no driver File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 103
+    Warning (13040): bidirectional pin "PS2_CLK2" has no driver File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 104
+    Warning (13040): bidirectional pin "I2C_SDAT" has no driver File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 107
+    Warning (13040): bidirectional pin "AUD_ADCLRCK" has no driver File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 111
+    Warning (13040): bidirectional pin "AUD_DACLRCK" has no driver File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 113
+    Warning (13040): bidirectional pin "AUD_BCLK" has no driver File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 115
+    Warning (13040): bidirectional pin "ENET0_MDIO" has no driver File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 125
+    Warning (13040): bidirectional pin "ENET1_MDIO" has no driver File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 142
+    Warning (13040): bidirectional pin "EX_IO[0]" has no driver File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 156
+    Warning (13040): bidirectional pin "EX_IO[1]" has no driver File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 156
+    Warning (13040): bidirectional pin "EX_IO[2]" has no driver File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 156
+    Warning (13040): bidirectional pin "EX_IO[3]" has no driver File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 156
+    Warning (13040): bidirectional pin "EX_IO[4]" has no driver File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 156
+    Warning (13040): bidirectional pin "EX_IO[5]" has no driver File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 156
+    Warning (13040): bidirectional pin "EX_IO[6]" has no driver File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 156
+Warning (13032): The following tri-state nodes are fed by constants
+    Warning (13033): The pin "OTG_FSPEED" is fed by VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 77
+    Warning (13033): The pin "OTG_LSPEED" is fed by VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 78
+    Warning (13033): The pin "SD_CMD" is fed by GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 92
+Info (13000): Registers with preset signals will power-up high File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 304
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning (13009): TRI or OPNDRN buffers permanently enabled
+    Warning (13010): Node "OTG_FSPEED~synth" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 77
+    Warning (13010): Node "OTG_LSPEED~synth" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 78
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "SMA_CLKOUT" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 6
+    Warning (13410): Pin "HEX0[0]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 16
+    Warning (13410): Pin "HEX0[1]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 16
+    Warning (13410): Pin "HEX0[2]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 16
+    Warning (13410): Pin "HEX0[3]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 16
+    Warning (13410): Pin "HEX0[4]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 16
+    Warning (13410): Pin "HEX0[5]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 16
+    Warning (13410): Pin "HEX0[6]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 16
+    Warning (13410): Pin "HEX1[0]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 17
+    Warning (13410): Pin "HEX1[1]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 17
+    Warning (13410): Pin "HEX1[2]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 17
+    Warning (13410): Pin "HEX1[3]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 17
+    Warning (13410): Pin "HEX1[4]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 17
+    Warning (13410): Pin "HEX1[5]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 17
+    Warning (13410): Pin "HEX1[6]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 17
+    Warning (13410): Pin "HEX2[0]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 18
+    Warning (13410): Pin "HEX2[1]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 18
+    Warning (13410): Pin "HEX2[2]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 18
+    Warning (13410): Pin "HEX2[3]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 18
+    Warning (13410): Pin "HEX2[4]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 18
+    Warning (13410): Pin "HEX2[5]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 18
+    Warning (13410): Pin "HEX2[6]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 18
+    Warning (13410): Pin "HEX3[0]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 19
+    Warning (13410): Pin "HEX3[1]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 19
+    Warning (13410): Pin "HEX3[2]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 19
+    Warning (13410): Pin "HEX3[3]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 19
+    Warning (13410): Pin "HEX3[4]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 19
+    Warning (13410): Pin "HEX3[5]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 19
+    Warning (13410): Pin "HEX3[6]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 19
+    Warning (13410): Pin "HEX4[0]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 20
+    Warning (13410): Pin "HEX4[1]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 20
+    Warning (13410): Pin "HEX4[2]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 20
+    Warning (13410): Pin "HEX4[3]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 20
+    Warning (13410): Pin "HEX4[4]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 20
+    Warning (13410): Pin "HEX4[5]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 20
+    Warning (13410): Pin "HEX4[6]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 20
+    Warning (13410): Pin "HEX5[0]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 21
+    Warning (13410): Pin "HEX5[1]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 21
+    Warning (13410): Pin "HEX5[2]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 21
+    Warning (13410): Pin "HEX5[3]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 21
+    Warning (13410): Pin "HEX5[4]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 21
+    Warning (13410): Pin "HEX5[5]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 21
+    Warning (13410): Pin "HEX5[6]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 21
+    Warning (13410): Pin "HEX6[0]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 22
+    Warning (13410): Pin "HEX6[1]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 22
+    Warning (13410): Pin "HEX6[2]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 22
+    Warning (13410): Pin "HEX6[3]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 22
+    Warning (13410): Pin "HEX6[4]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 22
+    Warning (13410): Pin "HEX6[5]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 22
+    Warning (13410): Pin "HEX6[6]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 22
+    Warning (13410): Pin "HEX7[0]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 23
+    Warning (13410): Pin "HEX7[1]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 23
+    Warning (13410): Pin "HEX7[2]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 23
+    Warning (13410): Pin "HEX7[3]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 23
+    Warning (13410): Pin "HEX7[4]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 23
+    Warning (13410): Pin "HEX7[5]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 23
+    Warning (13410): Pin "HEX7[6]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 23
+    Warning (13410): Pin "LEDG[0]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 26
+    Warning (13410): Pin "LEDG[1]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 26
+    Warning (13410): Pin "LEDG[2]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 26
+    Warning (13410): Pin "LEDG[3]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 26
+    Warning (13410): Pin "LEDG[4]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 26
+    Warning (13410): Pin "LEDG[5]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 26
+    Warning (13410): Pin "LEDG[6]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 26
+    Warning (13410): Pin "LEDG[7]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 26
+    Warning (13410): Pin "LEDG[8]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 26
+    Warning (13410): Pin "LEDR[2]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 27
+    Warning (13410): Pin "LEDR[3]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 27
+    Warning (13410): Pin "LEDR[4]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 27
+    Warning (13410): Pin "LEDR[5]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 27
+    Warning (13410): Pin "LEDR[6]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 27
+    Warning (13410): Pin "LEDR[7]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 27
+    Warning (13410): Pin "LEDR[8]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 27
+    Warning (13410): Pin "LEDR[9]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 27
+    Warning (13410): Pin "LEDR[10]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 27
+    Warning (13410): Pin "LEDR[11]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 27
+    Warning (13410): Pin "LEDR[12]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 27
+    Warning (13410): Pin "LEDR[13]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 27
+    Warning (13410): Pin "LEDR[14]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 27
+    Warning (13410): Pin "LEDR[15]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 27
+    Warning (13410): Pin "LEDR[16]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 27
+    Warning (13410): Pin "LEDR[17]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 27
+    Warning (13410): Pin "UART_TXD" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 30
+    Warning (13410): Pin "UART_CTS" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 32
+    Warning (13410): Pin "DRAM_ADDR[0]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 40
+    Warning (13410): Pin "DRAM_ADDR[1]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 40
+    Warning (13410): Pin "DRAM_ADDR[2]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 40
+    Warning (13410): Pin "DRAM_ADDR[3]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 40
+    Warning (13410): Pin "DRAM_ADDR[4]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 40
+    Warning (13410): Pin "DRAM_ADDR[5]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 40
+    Warning (13410): Pin "DRAM_ADDR[6]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 40
+    Warning (13410): Pin "DRAM_ADDR[7]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 40
+    Warning (13410): Pin "DRAM_ADDR[8]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 40
+    Warning (13410): Pin "DRAM_ADDR[9]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 40
+    Warning (13410): Pin "DRAM_ADDR[10]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 40
+    Warning (13410): Pin "DRAM_ADDR[11]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 40
+    Warning (13410): Pin "DRAM_ADDR[12]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 40
+    Warning (13410): Pin "DRAM_BA[0]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 41
+    Warning (13410): Pin "DRAM_BA[1]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 41
+    Warning (13410): Pin "DRAM_DQM[0]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 42
+    Warning (13410): Pin "DRAM_DQM[1]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 42
+    Warning (13410): Pin "DRAM_DQM[2]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 42
+    Warning (13410): Pin "DRAM_DQM[3]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 42
+    Warning (13410): Pin "DRAM_RAS_N" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 43
+    Warning (13410): Pin "DRAM_CAS_N" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 44
+    Warning (13410): Pin "DRAM_CKE" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 45
+    Warning (13410): Pin "DRAM_CLK" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 46
+    Warning (13410): Pin "DRAM_WE_N" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 47
+    Warning (13410): Pin "DRAM_CS_N" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 48
+    Warning (13410): Pin "FL_ADDR[0]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 52
+    Warning (13410): Pin "FL_ADDR[1]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 52
+    Warning (13410): Pin "FL_ADDR[2]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 52
+    Warning (13410): Pin "FL_ADDR[3]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 52
+    Warning (13410): Pin "FL_ADDR[4]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 52
+    Warning (13410): Pin "FL_ADDR[5]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 52
+    Warning (13410): Pin "FL_ADDR[6]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 52
+    Warning (13410): Pin "FL_ADDR[7]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 52
+    Warning (13410): Pin "FL_ADDR[8]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 52
+    Warning (13410): Pin "FL_ADDR[9]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 52
+    Warning (13410): Pin "FL_ADDR[10]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 52
+    Warning (13410): Pin "FL_ADDR[11]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 52
+    Warning (13410): Pin "FL_ADDR[12]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 52
+    Warning (13410): Pin "FL_ADDR[13]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 52
+    Warning (13410): Pin "FL_ADDR[14]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 52
+    Warning (13410): Pin "FL_ADDR[15]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 52
+    Warning (13410): Pin "FL_ADDR[16]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 52
+    Warning (13410): Pin "FL_ADDR[17]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 52
+    Warning (13410): Pin "FL_ADDR[18]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 52
+    Warning (13410): Pin "FL_ADDR[19]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 52
+    Warning (13410): Pin "FL_ADDR[20]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 52
+    Warning (13410): Pin "FL_ADDR[21]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 52
+    Warning (13410): Pin "FL_ADDR[22]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 52
+    Warning (13410): Pin "FL_WE_N" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 53
+    Warning (13410): Pin "FL_WP_N" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 54
+    Warning (13410): Pin "FL_RST_N" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 55
+    Warning (13410): Pin "FL_OE_N" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 56
+    Warning (13410): Pin "FL_CE_N" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 57
+    Warning (13410): Pin "SRAM_ADDR[0]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 62
+    Warning (13410): Pin "SRAM_ADDR[1]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 62
+    Warning (13410): Pin "SRAM_ADDR[2]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 62
+    Warning (13410): Pin "SRAM_ADDR[3]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 62
+    Warning (13410): Pin "SRAM_ADDR[4]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 62
+    Warning (13410): Pin "SRAM_ADDR[5]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 62
+    Warning (13410): Pin "SRAM_ADDR[6]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 62
+    Warning (13410): Pin "SRAM_ADDR[7]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 62
+    Warning (13410): Pin "SRAM_ADDR[8]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 62
+    Warning (13410): Pin "SRAM_ADDR[9]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 62
+    Warning (13410): Pin "SRAM_ADDR[10]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 62
+    Warning (13410): Pin "SRAM_ADDR[11]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 62
+    Warning (13410): Pin "SRAM_ADDR[12]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 62
+    Warning (13410): Pin "SRAM_ADDR[13]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 62
+    Warning (13410): Pin "SRAM_ADDR[14]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 62
+    Warning (13410): Pin "SRAM_ADDR[15]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 62
+    Warning (13410): Pin "SRAM_ADDR[16]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 62
+    Warning (13410): Pin "SRAM_ADDR[17]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 62
+    Warning (13410): Pin "SRAM_ADDR[18]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 62
+    Warning (13410): Pin "SRAM_ADDR[19]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 62
+    Warning (13410): Pin "SRAM_OE_N" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 63
+    Warning (13410): Pin "SRAM_WE_N" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 64
+    Warning (13410): Pin "SRAM_CE_N" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 65
+    Warning (13410): Pin "SRAM_UB_N" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 66
+    Warning (13410): Pin "SRAM_LB_N" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 67
+    Warning (13410): Pin "OTG_ADDR[0]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 71
+    Warning (13410): Pin "OTG_ADDR[1]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 71
+    Warning (13410): Pin "OTG_CS_N" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 72
+    Warning (13410): Pin "OTG_RD_N" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 73
+    Warning (13410): Pin "OTG_WR_N" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 74
+    Warning (13410): Pin "OTG_RST_N" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 75
+    Warning (13410): Pin "OTG_DACK_N[0]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 80
+    Warning (13410): Pin "OTG_DACK_N[1]" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 80
+    Warning (13410): Pin "LCD_ON" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 84
+    Warning (13410): Pin "LCD_BLON" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 85
+    Warning (13410): Pin "LCD_RW" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 86
+    Warning (13410): Pin "LCD_EN" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 87
+    Warning (13410): Pin "LCD_RS" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 88
+    Warning (13410): Pin "SD_CLK" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 93
+    Warning (13410): Pin "EEP_I2C_SCLK" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 97
+    Warning (13410): Pin "I2C_SCLK" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 108
+    Warning (13410): Pin "AUD_DACDAT" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 114
+    Warning (13410): Pin "AUD_XCK" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 116
+    Warning (13410): Pin "ENET0_GTX_CLK" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 121
+    Warning (13410): Pin "ENET0_MDC" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 124
+    Warning (13410): Pin "ENET0_RST_N" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 126
+    Warning (13410): Pin "ENET0_TX_DATA[0]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 134
+    Warning (13410): Pin "ENET0_TX_DATA[1]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 134
+    Warning (13410): Pin "ENET0_TX_DATA[2]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 134
+    Warning (13410): Pin "ENET0_TX_DATA[3]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 134
+    Warning (13410): Pin "ENET0_TX_EN" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 135
+    Warning (13410): Pin "ENET0_TX_ER" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 136
+    Warning (13410): Pin "ENET1_GTX_CLK" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 138
+    Warning (13410): Pin "ENET1_MDC" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 141
+    Warning (13410): Pin "ENET1_RST_N" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 143
+    Warning (13410): Pin "ENET1_TX_DATA[0]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 151
+    Warning (13410): Pin "ENET1_TX_DATA[1]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 151
+    Warning (13410): Pin "ENET1_TX_DATA[2]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 151
+    Warning (13410): Pin "ENET1_TX_DATA[3]" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 151
+    Warning (13410): Pin "ENET1_TX_EN" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 152
+    Warning (13410): Pin "ENET1_TX_ER" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 153
+    Warning (13410): Pin "TD_RESET_N" is stuck at GND File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 164
+    Warning (13410): Pin "VGA_SYNC_N" is stuck at VCC File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 171
+Info (286030): Timing-Driven Synthesis is running
+Info (144001): Generated suppressed messages file H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory/output_files/output_files/vga_driver_memory_2.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 71 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "CLOCK2_50" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 4
+    Warning (15610): No output dependent on input pin "CLOCK3_50" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 5
+    Warning (15610): No output dependent on input pin "SMA_CLKIN" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 7
+    Warning (15610): No output dependent on input pin "KEY[0]" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 10
+    Warning (15610): No output dependent on input pin "KEY[1]" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 10
+    Warning (15610): No output dependent on input pin "KEY[2]" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 10
+    Warning (15610): No output dependent on input pin "KEY[3]" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 10
+    Warning (15610): No output dependent on input pin "SW[1]" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 13
+    Warning (15610): No output dependent on input pin "SW[2]" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 13
+    Warning (15610): No output dependent on input pin "SW[3]" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 13
+    Warning (15610): No output dependent on input pin "SW[4]" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 13
+    Warning (15610): No output dependent on input pin "SW[5]" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 13
+    Warning (15610): No output dependent on input pin "SW[6]" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 13
+    Warning (15610): No output dependent on input pin "SW[7]" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 13
+    Warning (15610): No output dependent on input pin "SW[8]" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 13
+    Warning (15610): No output dependent on input pin "SW[9]" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 13
+    Warning (15610): No output dependent on input pin "SW[10]" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 13
+    Warning (15610): No output dependent on input pin "SW[11]" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 13
+    Warning (15610): No output dependent on input pin "SW[12]" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 13
+    Warning (15610): No output dependent on input pin "SW[13]" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 13
+    Warning (15610): No output dependent on input pin "SW[14]" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 13
+    Warning (15610): No output dependent on input pin "SW[15]" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 13
+    Warning (15610): No output dependent on input pin "SW[16]" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 13
+    Warning (15610): No output dependent on input pin "SW[17]" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 13
+    Warning (15610): No output dependent on input pin "UART_RXD" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 31
+    Warning (15610): No output dependent on input pin "UART_RTS" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 33
+    Warning (15610): No output dependent on input pin "IRDA_RXD" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 36
+    Warning (15610): No output dependent on input pin "FL_RY" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 58
+    Warning (15610): No output dependent on input pin "OTG_INT[0]" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 76
+    Warning (15610): No output dependent on input pin "OTG_INT[1]" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 76
+    Warning (15610): No output dependent on input pin "OTG_DREQ[0]" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 79
+    Warning (15610): No output dependent on input pin "OTG_DREQ[1]" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 79
+    Warning (15610): No output dependent on input pin "SD_WP_N" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 94
+    Warning (15610): No output dependent on input pin "AUD_ADCDAT" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 112
+    Warning (15610): No output dependent on input pin "ENETCLK_25" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 119
+    Warning (15610): No output dependent on input pin "ENET0_INT_N" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 122
+    Warning (15610): No output dependent on input pin "ENET0_LINK100" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 123
+    Warning (15610): No output dependent on input pin "ENET0_RX_CLK" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 127
+    Warning (15610): No output dependent on input pin "ENET0_RX_COL" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 128
+    Warning (15610): No output dependent on input pin "ENET0_RX_CRS" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 129
+    Warning (15610): No output dependent on input pin "ENET0_RX_DATA[0]" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 130
+    Warning (15610): No output dependent on input pin "ENET0_RX_DATA[1]" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 130
+    Warning (15610): No output dependent on input pin "ENET0_RX_DATA[2]" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 130
+    Warning (15610): No output dependent on input pin "ENET0_RX_DATA[3]" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 130
+    Warning (15610): No output dependent on input pin "ENET0_RX_DV" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 131
+    Warning (15610): No output dependent on input pin "ENET0_RX_ER" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 132
+    Warning (15610): No output dependent on input pin "ENET0_TX_CLK" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 133
+    Warning (15610): No output dependent on input pin "ENET1_INT_N" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 139
+    Warning (15610): No output dependent on input pin "ENET1_LINK100" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 140
+    Warning (15610): No output dependent on input pin "ENET1_RX_CLK" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 144
+    Warning (15610): No output dependent on input pin "ENET1_RX_COL" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 145
+    Warning (15610): No output dependent on input pin "ENET1_RX_CRS" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 146
+    Warning (15610): No output dependent on input pin "ENET1_RX_DATA[0]" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 147
+    Warning (15610): No output dependent on input pin "ENET1_RX_DATA[1]" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 147
+    Warning (15610): No output dependent on input pin "ENET1_RX_DATA[2]" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 147
+    Warning (15610): No output dependent on input pin "ENET1_RX_DATA[3]" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 147
+    Warning (15610): No output dependent on input pin "ENET1_RX_DV" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 148
+    Warning (15610): No output dependent on input pin "ENET1_RX_ER" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 149
+    Warning (15610): No output dependent on input pin "ENET1_TX_CLK" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 150
+    Warning (15610): No output dependent on input pin "TD_DATA[0]" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 160
+    Warning (15610): No output dependent on input pin "TD_DATA[1]" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 160
+    Warning (15610): No output dependent on input pin "TD_DATA[2]" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 160
+    Warning (15610): No output dependent on input pin "TD_DATA[3]" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 160
+    Warning (15610): No output dependent on input pin "TD_DATA[4]" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 160
+    Warning (15610): No output dependent on input pin "TD_DATA[5]" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 160
+    Warning (15610): No output dependent on input pin "TD_DATA[6]" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 160
+    Warning (15610): No output dependent on input pin "TD_DATA[7]" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 160
+    Warning (15610): No output dependent on input pin "TD_DATA[8]" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 160
+    Warning (15610): No output dependent on input pin "TD_CLK27" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 161
+    Warning (15610): No output dependent on input pin "TD_HS" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 162
+    Warning (15610): No output dependent on input pin "TD_VS" File: H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory_2/vga_driver_memory_2.v Line: 163
+Info (21057): Implemented 512 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 73 input pins
+    Info (21059): Implemented 230 output pins
+    Info (21060): Implemented 141 bidirectional pins
+    Info (21061): Implemented 68 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 317 warnings
+    Info: Peak virtual memory: 4780 megabytes
+    Info: Processing ended: Thu Oct 28 11:45:32 2021
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:21
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in H:/TEACHING/ECE_287/FALL_2021/LABS/FALL_12_LABS/VGA_ON_DE2_115/vga_driver_memory/output_files/output_files/vga_driver_memory_2.map.smsg.
+
+
