@@ -152,7 +152,28 @@ reg [23:0] frame_buf_mem_data;
 reg frame_buf_mem_wren;
 wire [23:0]frame_buf_mem_q;
 
-/* This memory is 
+
+reg [1:0] frog_row = 3;
+reg [1:0] frog_col = 1;
+wire up;
+wire right;
+wire left;
+
+wire [5:0] frog_tile = frog_row * 4 + frog_col;
+
+input frog(clk, rst, up, right, left);
+
+always@(*)
+begin
+	frog_tile = frog_tile - 4 * up;
+	frog_tile = frog_tile - 1 * left;
+	frog_tile = frog_tile + 1 * right;
+end
+
+
+
+
+// This memory is 
 vga_frame vga_memory(
 	frame_buf_mem_address,
 	clk,
@@ -261,18 +282,25 @@ begin
 			W2M_INIT:
 			begin
 				frame_buf_mem_address <= 14'd0;
-				frame_buf_mem_data <= 24'd0;
 				frame_buf_mem_wren <= 1'd1;
 				i <= 16'd0;
+
+			if (i == frog_tile)
+				frame_buf_mem_data <= 24'h00FF00;
+			else
+				frame_buf_mem_data <= {red, green, blue};
 			end
 			W2M_COND:
 			begin
 			end
 			W2M_INC: 
 			begin
-				i <= i + 1'b1;
 				frame_buf_mem_address <= frame_buf_mem_address + 1'b1;
-				frame_buf_mem_data <= {red, green, blue}; // done in the combinational part below
+				if (i == frog_tile)
+					frame_buf_mem_data <= 24'h00FF00;
+				else
+					frame_buf_mem_data <= {red, green, blue}; // done in the combinational part below
+				i <= i + 1'b1;
 			end
 			RFM_INIT: 
 			begin
@@ -299,14 +327,14 @@ always @(*)
 begin
 	/* This part is for taking the memory value read out from memory and sending to the VGA */
 	if (S == RFM_INIT || S == RFM_DRAWING)
-		{VGA_R, VGA_G, VGA_B} = frame_buf_mem_q;
+		{VGA_R, VGA_G, VGA_B} = frame_buf_mem_q; //frame_buf_mem_q;
 	else
 		{VGA_R, VGA_G, VGA_B} = 24'hFFFFFF;
 	
 	/* this does calculations for R, G, and B in the writing phase */
-	red = 8'h0F * (i+1) * SW[2];	
-	green = 8'h0F * (i+1) * SW[1];	
-	blue = 8'h0F * (i+1) * SW[0];
+	red = 8'd173;	
+	green = 8'd216;	
+	blue = 8'd230;
 	
 end
 
