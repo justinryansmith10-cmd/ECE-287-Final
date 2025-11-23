@@ -1,3 +1,4 @@
+
 module input_fsm(
     input  clk,
     input  rst,
