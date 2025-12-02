@@ -29,7 +29,7 @@ assign HEX3 = 7'h00;
 // Clock and reset
 // ---------------------------
 wire clk = CLOCK_50;
-wire rst = KEY[0];
+wire rst = SW[1];
 
 // ---------------------------
 // Debounce switches
@@ -52,7 +52,7 @@ wire [9:0] y;
 
 vga_driver the_vga(
     .clk(clk),
-    .rst(rst),
+    .rst(1'b0),
     .vga_clk(VGA_CLK),
     .hsync(VGA_HS),
     .vsync(VGA_VS),
@@ -67,19 +67,21 @@ vga_driver the_vga(
 // ---------------------------
 // Frog movement
 // ---------------------------
-reg [5:0] frog_tile = 6'd14; // starting tile
+reg [31:0] frog_tile = 32'd59; // starting tile
 
-wire up, right, left;
-input_fsm frog_input(.clk(clk), .rst(rst), .KEY(KEY), .up(up), .right(right), .left(left));
+wire up, right, left, down;
+input_fsm frog_input(.clk(clk), .rst(rst), .KEY(KEY), .up(up), .right(right), .left(left), .down(down));
 
-always @(posedge clk or negedge rst) begin
-    if (!rst)
-        frog_tile <= 6'd14;
+
+always @(posedge clk or posedge rst) begin
+    if (rst)
+        frog_tile <= 32'd59;
     else begin
         // move on pulses
-        if (up && frog_tile >= 4)             frog_tile <= frog_tile - 4;
-        else if (left && frog_tile % 4 != 0)  frog_tile <= frog_tile - 1;
-        else if (right && frog_tile % 4 != 3) frog_tile <= frog_tile + 1;
+        if (up && frog_tile >= 8)             frog_tile <= frog_tile - 8;
+		  else if (down && frog_tile <= 56)     frog_tile <= frog_tile + 8;
+        else if (left && frog_tile % 8 != 0)  frog_tile <= frog_tile - 1;
+        else if (right && frog_tile % 8 != 7) frog_tile <= frog_tile + 1;
     end
 end
 
@@ -91,15 +93,15 @@ reg [23:0] frame_buf_mem_data;
 reg frame_buf_mem_wren;
 wire [23:0] frame_buf_mem_q;
 
-vga_frame vga_memory(
-    frame_buf_mem_address,
-    clk,
-    frame_buf_mem_data,
-    frame_buf_mem_wren,
-    frame_buf_mem_q
+vga_frame vga_memory_2(
+    .address(frame_buf_mem_address),
+    .clock(clk),
+    .data(frame_buf_mem_data),
+    .wren(frame_buf_mem_wren),
+    .q(frame_buf_mem_q)
 );
 
-parameter LOOP_I_SIZE = 4;
+parameter LOOP_I_SIZE = 8;
 parameter WIDTH = 640;
 parameter HEIGHT = 480;
 parameter PIXELS_IN_WIDTH = WIDTH / LOOP_I_SIZE;   // 160

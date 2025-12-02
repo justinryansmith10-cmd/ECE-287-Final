@@ -46,9 +46,9 @@ parameter
 	MAYBE_ZERO = 3'd4,
 	ERROR = 3'b111;
 
-always @(posedge clk or negedge rst)
+always @(posedge clk or posedge rst)
 begin
-	if (rst == 1'b0)
+	if (rst)
 		S <= START;
 	else
 		S <= NS;
@@ -87,9 +87,9 @@ begin
 end
 
 	
-always @(posedge clk or negedge rst)
+always @(posedge clk or posedge rst)
 begin
-	if (rst == 1'b0)
+	if (rst)
 		count <= 8'd0;
 	else
 		case (S)

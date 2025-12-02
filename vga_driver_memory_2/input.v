@@ -5,7 +5,8 @@ module input_fsm(
     input  [3:0] KEY,
     output reg up,
     output reg right,
-    output reg left
+    output reg left,
+	 output reg down
 );
 
 // invert keys (KEY is active low)
@@ -21,8 +22,8 @@ parameter START = 3'd0,
 parameter TARGET = 28'd12500000; // 0.25 sec at 50 MHz
 
 // Sync FSM
-always @(posedge clk or negedge rst)
-    if (!rst) S <= START;
+always @(posedge clk or posedge rst)
+    if (rst) S <= START;
     else      S <= NS;
 
 // Next-state logic
@@ -31,7 +32,7 @@ always @(*) begin
         START: NS = MOVE;
 
         MOVE: begin
-            if (key_n[2] | key_n[1] | key_n[3])
+            if (key_n[2] | key_n[1] | key_n[3] | key_n[0])
                 NS = WAIT;
             else
                 NS = MOVE;
@@ -49,11 +50,12 @@ always @(*) begin
 end
 
 // Output logic (generate pulses)
-always @(posedge clk or negedge rst) begin
-    if (!rst) begin
+always @(posedge clk or posedge rst) begin
+    if (rst) begin
         up <= 0;
         right <= 0;
         left <= 0;
+		  down <= 0;
         count <= 0;
     end 
     else begin
@@ -65,6 +67,7 @@ always @(posedge clk or negedge rst) begin
                 up    <= key_n[2];
                 right <= key_n[1];
                 left  <= key_n[3];
+					 down <= key_n[0];
             end
 
             WAIT: begin
@@ -74,6 +77,7 @@ always @(posedge clk or negedge rst) begin
                 up <= 0;
                 right <= 0;
                 left <= 0;
+					 down <= 0;
             end
         endcase
     end

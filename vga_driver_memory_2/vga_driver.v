@@ -55,9 +55,9 @@ begin
 	VGA_SYNC_N = 1'b1;
 end
 
-always @(posedge clk or negedge rst)
+always @(posedge clk or posedge rst)
 begin
-	if (rst == 1'b0)
+	if (rst == 1'b1)
 	begin
 		vga_clk <= 1'b0;
 		xPixel <= 10'd0;
