@@ -32,7 +32,7 @@ Cleanly structured modules (VGA, memory, FSM, debounce)
 Designed for actual hardware timing on the DE1-SoC
 
 This project builds on the VGA memory example provided by the instructor
-Final Design
 
-Overview:
+
+
 
