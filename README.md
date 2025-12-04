@@ -40,7 +40,7 @@ This project builds on the VGA memory example provided by the instructor
 | **KEY1**      | Move Right                |
 | **KEY2**      | Move Up                   |
 | **KEY3**      | Move Left                 |
-| **SW0**       | Reset Game                |
+| **SW1**       | Reset Game                |
 
 
 ### Hardware Architecture
