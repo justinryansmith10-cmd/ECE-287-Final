@@ -100,6 +100,7 @@ This project builds on the VGA memory example provided by the instructor
   - input.v
 
  3. Program onto a DE1_SoC board
+ 4. Switch Monitor to VGA input and Enjoy!
 
  ## 👤 Authors
 - [**Justin Smith**](https://github.com/justinryansmith10-cmd)
@@ -108,4 +109,4 @@ This project builds on the VGA memory example provided by the instructor
 
  
 
- 5. Switch Monitor to VGA input and Enjoy!
+ 
