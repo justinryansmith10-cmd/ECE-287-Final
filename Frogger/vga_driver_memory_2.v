@@ -73,13 +73,17 @@ parameter HEIGHT = 480;
 parameter PIXELS_IN_WIDTH = WIDTH / LOOP_I_SIZE;   // 160
 parameter PIXELS_IN_HEIGHT = HEIGHT / LOOP_I_SIZE; // 120
 
-reg [31:0] frog_tile = 32'd59; // starting tile
+reg [5:0] frog_tile = 6'd59; // starting tile
 wire at_top = frog_tile < LOOP_I_SIZE;
 reg game_won = 1'b0;
 reg game_lost = 1'b0;
 
-reg [31:0] obstacle_tile = 32'd23; // starting tile (row 2, rightmost)
-reg [31:0] obstacle_tile_2 = 32'd32;
+reg [5:0] obstacle_tile = 6'd23; // starting tile (row 2, rightmost)
+reg [5:0] obstacle_tile_2 = 6'd32;
+reg [5:0] obstacle_tile_3 = 6'd1;
+reg [5:0] obstacle_tile_4 = 6'd62;
+reg [5:0] obstacle_tile_5 = 6'd27;
+reg [5:0] obstacle_tile_6 = 6'd28;
 
 wire up, right, left, down;
 input_fsm frog_input(.clk(clk), .rst(rst), .KEY(KEY), .up(up), .right(right), .left(left), .down(down));
@@ -87,7 +91,7 @@ input_fsm frog_input(.clk(clk), .rst(rst), .KEY(KEY), .up(up), .right(right), .l
 
 always @(posedge clk or posedge rst) begin
     if (rst) begin
-        frog_tile <= 32'd59;
+        frog_tile <= 6'd59;
 		  game_won <= 1'b0;
 		  game_lost <= 1'b0;
     end else begin
@@ -100,7 +104,12 @@ always @(posedge clk or posedge rst) begin
 		  if (at_top && up) begin
 				game_won <= 1'b1;
 		  end
-		  if (frog_tile == obstacle_tile || frog_tile == obstacle_tile_2) begin
+		  if (frog_tile == obstacle_tile || 
+				frog_tile == obstacle_tile_2 || 
+				frog_tile == obstacle_tile_3 || 
+				frog_tile == obstacle_tile_4 ||
+				frog_tile == obstacle_tile_5 ||
+				frog_tile == obstacle_tile_6) begin
 				game_lost <= 1'b1;
 		  end
     end
@@ -113,33 +122,56 @@ parameter HALF_SECOND = CLOCK_FREQ / 2; // 25,000,000 cycles
 
 reg [31:0] obstacle_counter = 32'd0; 
 
+lfsr6 L1(.clk(clk), .rst(rst), .rnd(rand1));
+lfsr6 L2(.clk(clk), .rst(rst), .rnd(rand2));
+lfsr6 L3(.clk(clk), .rst(rst), .rnd(rand3));
+lfsr6 L4(.clk(clk), .rst(rst), .rnd(rand4));
+lfsr6 L5(.clk(clk), .rst(rst), .rnd(rand5));
+lfsr6 L6(.clk(clk), .rst(rst), .rnd(rand6));
+
 always @(posedge clk or posedge rst) begin
     if (rst) begin
-        obstacle_tile <= 32'd23;
-		  obstacle_tile_2 <= 32'd32;
+        obstacle_tile <= 6'd23;
+		  obstacle_tile_2 <= 6'd32;
+		  obstacle_tile_3 <= 6'd1;
+		  obstacle_tile_4 <= 6'd62;
+		  obstacle_tile_5 <= rand5;
+		  obstacle_tile_6 <= rand6;
         obstacle_counter <= 32'd0;
     end
     else if (!game_won || !game_lost) begin
         if (obstacle_counter >= HALF_SECOND - 1) begin
-            obstacle_counter <= 32'd0;
-            
-            // Move obstacle left
-            if (obstacle_tile % 8 == 0) begin
-                // Reached leftmost position, wrap to right
-                obstacle_tile <= 32'd23;
-            end
-				if ((obstacle_tile_2 + 1) % 8 == 0) begin
-					 obstacle_tile_2 <= 32'd32;
-				end
-            else begin
-                // Move one tile left
-                obstacle_tile <= obstacle_tile - 1;
-					 obstacle_tile_2 <= obstacle_tile_2 + 1;
-            end
-        end
-        else begin
-            obstacle_counter <= obstacle_counter + 1;
-        end
+				 obstacle_counter <= 32'd0;
+				 
+				 // Obstacle 1: move left, wrap to right
+				 if (obstacle_tile % 8 == 0) begin
+					  obstacle_tile <= rand1;
+				 end else begin
+					  obstacle_tile <= obstacle_tile - 1;
+				 end
+
+				 // Obstacle 2: move right, wrap to left
+				 if ((obstacle_tile_2 + 1) % 8 == 0) begin
+					  obstacle_tile_2 <= rand2;
+				 end else begin
+					  obstacle_tile_2 <= obstacle_tile_2 + 1;
+				 end
+
+				 // Obstacle 3: move down a row, wrap to top (example)
+				 if (obstacle_tile_3 > 54) begin
+					  obstacle_tile_3 <= rand3;
+				 end else begin
+					  obstacle_tile_3 <= obstacle_tile_3 + 8;
+				 end
+				 
+				 if (obstacle_tile_4 < 8) begin
+					  obstacle_tile_4 <= rand4;
+				 end else begin
+					  obstacle_tile_4 <= obstacle_tile_4 - 8;
+				 end
+			end else begin
+				 obstacle_counter <= obstacle_counter + 1;
+			end
     end
 end
 
@@ -199,7 +231,11 @@ wire [31:0] current_tile = (y / PIXELS_IN_HEIGHT) * LOOP_I_SIZE + (x / PIXELS_IN
 wire [23:0] game_pixel_color = 
     (current_tile == frog_tile) ? 24'h00FF00 :
 	 (current_tile == obstacle_tile) ? 24'hFF0000 :
-	 (current_tile == obstacle_tile_2) ? 24'hFF0000 : {red, green, blue};
+	 (current_tile == obstacle_tile_2) ? 24'hFF0000 : 
+	 (current_tile == obstacle_tile_3) ? 24'hFF0000 :
+	 (current_tile == obstacle_tile_4) ? 24'hFF0000 : 
+	 (current_tile == obstacle_tile_5) ? 24'hFF0000 : 
+	 (current_tile == obstacle_tile_6) ? 24'hFF0000 : {red, green, blue};
 
 wire [23:0] win_pixel_color = 
     in_text_region ? (win_letter_pixel ? 24'hFFFF00 : 24'h0000FF) :
