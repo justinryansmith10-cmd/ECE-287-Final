@@ -92,6 +92,17 @@ reg [5:0] obstacle_tile_4 = 6'd62;
 reg [5:0] obstacle_tile_5 = 6'd27; // static
 reg [5:0] obstacle_tile_6 = 6'd28; // static
 
+wire [5:0] rnd0, rnd1, rnd2, rnd3, rnd4, rnd5;
+wire [2:0] rand0, rand1, rand2, rand3, rand4, rand5;
+
+lfsr6 R0(.clk(clk), .rnd(rnd0), .rnd_3bit(rand0));
+lfsr6 R1(.clk(clk), .rnd(rnd1), .rnd_3bit(rand1));
+lfsr6 R2(.clk(clk), .rnd(rnd2), .rnd_3bit(rand2));
+lfsr6 R3(.clk(clk), .rnd(rnd3), .rnd_3bit(rand3));
+lfsr6 R4(.clk(clk), .rnd(rnd4), .rnd_3bit(rand4));
+lfsr6 R5(.clk(clk), .rnd(rnd5), .rnd_3bit(rand5));
+
+
 wire up, right, left, down;
 input_fsm frog_input(
     .clk(clk),
@@ -179,12 +190,12 @@ reg [1:0]  level_prev       = 2'd0;    // track last level to detect changes
 always @(posedge clk or posedge rst) begin
     if (rst) begin
         // initial LEVEL 0 positions
-        obstacle_tile   <= 6'd23;
-        obstacle_tile_2 <= 6'd32;
-        obstacle_tile_3 <= 6'd1;
-        obstacle_tile_4 <= 6'd62;
-        obstacle_tile_5 <= 6'd27;
-        obstacle_tile_6 <= 6'd28;
+        obstacle_tile   <= 6'd23 + rand0;
+        obstacle_tile_2 <= 6'd32 + rand1;
+        obstacle_tile_3 <= 6'd1 + rand2;
+        obstacle_tile_4 <= (6'd62 + rand3) & 6'h3F;
+        obstacle_tile_5 <= 6'd27 + rand4;
+        obstacle_tile_6 <= 6'd28 + rand5;
 
         obstacle_counter <= 32'd0;
         level_prev       <= 2'd0;
@@ -196,12 +207,12 @@ always @(posedge clk or posedge rst) begin
 
             if (level == 2'd0) begin
                 // back to LEVEL 0 pattern
-                obstacle_tile   <= 6'd23;
-                obstacle_tile_2 <= 6'd32;
-                obstacle_tile_3 <= 6'd1;
-                obstacle_tile_4 <= 6'd62;
-                obstacle_tile_5 <= 6'd27;
-                obstacle_tile_6 <= 6'd28;
+                obstacle_tile   <= 6'd23 + rand0;
+                obstacle_tile_2 <= 6'd32 + rand1;
+                obstacle_tile_3 <= 6'd1 + rand2;
+                obstacle_tile_4 <= (6'd62 + rand3) & 6'h3F;
+                obstacle_tile_5 <= 6'd27 + rand4;
+                obstacle_tile_6 <= 6'd28 + rand5;
             end else if (level == 2'd1) begin
                 // initial LEVEL 1 positions (example pattern)
                 obstacle_tile   <= 6'd47;
@@ -228,25 +239,25 @@ always @(posedge clk or posedge rst) begin
                     // ----- LEVEL 0 PATTERN -----
                     // Obstacle 1: move left, wrap to right
                     if (obstacle_tile % 8 == 0)
-                        obstacle_tile <= 6'd23;
+                        obstacle_tile <= 6'd23 + rand0;
                     else
                         obstacle_tile <= obstacle_tile - 1;
 
                     // Obstacle 2: move right, wrap to left
                     if ((obstacle_tile_2 + 1) % 8 == 0)
-                        obstacle_tile_2 <= 6'd32;
+                        obstacle_tile_2 <= 6'd32 + rand1;
                     else
                         obstacle_tile_2 <= obstacle_tile_2 + 1;
 
                     // Obstacle 3: move down
                     if (obstacle_tile_3 > 54)
-                        obstacle_tile_3 <= 6'd1;
+                        obstacle_tile_3 <= 6'd1 + rand2;
                     else
                         obstacle_tile_3 <= obstacle_tile_3 + 8;
 
                     // Obstacle 4: move up
                     if (obstacle_tile_4 < 8)
-                        obstacle_tile_4 <= 6'd62;
+                        obstacle_tile_4 <= (6'd62 + rand3) & 6'h3F;
                     else
                         obstacle_tile_4 <= obstacle_tile_4 - 8;
 
@@ -474,3 +485,4 @@ always @(*) begin
     end
 end
 endmodule
+
